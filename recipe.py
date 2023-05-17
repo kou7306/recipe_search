@@ -1,10 +1,10 @@
+
 import streamlit as st
 import openai
 import json
 
-
 with open('secret.json') as f:
-    secret = json.load(f)
+  secret = json.load(f)
 KEY = secret['KEY']
 openai.api_key = KEY
 
@@ -81,7 +81,7 @@ if(st.session_state["flag"]>1):
   timeHolder = st.empty()
   a = st.session_state["ingredients"]
   b= st.session_state["ans_except"]
-  question = f"{b}といったこれらの料理以外で{a}を使った料理のレシピを1個表示して。ただし、最初にその料理名を書き、料理名の直後に"":""と書いた後、改行し、材料とその量を箇条書きにしてから、作り方を書いて。"
+  question = f"{b}といったこれらの料理以外で、{a}を使った料理のレシピを1個表示して。ただし、最初にその料理名を書き、料理名の直後に"":""と書いた後、改行し、材料とその量を箇条書きにしてから、作り方を書いて。"
   ans = Ans_ChatGPT(question,responses)
   for talk in ans:
     timeHolder.text(talk)
