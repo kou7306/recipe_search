@@ -57,7 +57,7 @@ if(st.session_state["flag"] ==0 and search and len(ingredients)!=0 ): #検索実
   st.session_state["flag"] += 1 #検索フラグセット
   st.session_state["ingredients"] = ingredients #検索している食材情報を記憶
   a = st.session_state["ingredients"]
-  question = f"{a}を使った料理のレシピを1個表示して。ただし、最初にその料理名を書き、料理名の直後に"":""と書いた後、改行し、材料とその量を箇条書きにしてから、作り方を書いて。"
+  question = f"{a}だけを使った料理のレシピを1個表示して。ただし、最初にその料理名を書き、料理名の直後に"":""と書いた後、改行し、材料とその量を箇条書きにしてから、作り方を書いて。"
   ans = Ans_ChatGPT(question,responses)
   for talk in ans:
     timeHolder.text(talk)
@@ -79,7 +79,7 @@ if(st.session_state["flag"]>1):
   timeHolder = st.empty()
   a = st.session_state["ingredients"]
   b= st.session_state["ans_except"]
-  question = f"{b}といったこれらの料理以外で、{a}を使った料理のレシピを1個表示して。ただし、最初にその料理名を書き、料理名の直後に"":""と書いた後、改行し、材料とその量を箇条書きにしてから、作り方を書いて。"
+  question = f"{b}といったこれらの料理以外で、{a}だけを使った料理のレシピを1個表示して。ただし、最初にその料理名を書き、料理名の直後に"":""と書いた後、改行し、材料とその量を箇条書きにしてから、作り方を書いて。"
   ans = Ans_ChatGPT(question,responses)
   for talk in ans:
     timeHolder.text(talk)
