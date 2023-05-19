@@ -1,9 +1,10 @@
 import streamlit as st
 import openai
-import os
 
-CHATGPT_API_KEY = os.environ.get("CHATGPT_API_KEY")
-openai.api_key = CHATGPT_API_KEY
+
+api_key = st.secrets.CHATGPT_API_KEY.key
+openai.api_key = api_key
+
 
 responses = [""]
 r = ""
